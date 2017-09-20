@@ -1,0 +1,5 @@
+optimus_proto.egg-info/PKG-INFO
+optimus_proto.egg-info/SOURCES.txt
+optimus_proto.egg-info/dependency_links.txt
+optimus_proto.egg-info/requires.txt
+optimus_proto.egg-info/top_level.txt
