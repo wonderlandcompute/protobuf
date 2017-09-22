@@ -4,13 +4,13 @@ message Point {
     string project = 1;
     uint64 id = 2;
 
-      enum Status {
-        PENDING = 0;
-        PULLED = 1;
-        RUNNING = 2;
-        FAILED = 3;
-        COMPLETED = 4;
-      }
+    enum Status {
+      PENDING = 0;
+      PULLED = 1;
+      RUNNING = 2;
+      FAILED = 3;
+      COMPLETED = 4;
+    }
 
     Status status = 3;
 
