@@ -35,5 +35,8 @@ service Optimus {
     rpc CreatePoint(Point) returns (Point) {}
     rpc GetPoint(RequestWithId) returns (Point) {}
     rpc ListPoints(ListPointsRequest) returns (ListOfPoints) {}
-    rpc ModifyPoint(Point) returns (Point) {}
+
+    rpc ModifyPoint(Point) returns (Point) {} /** Merges passed Status, MetricValue and Metadata to db */
+
+    rpc PullPendingPoints(ListPointsRequest) returns (ListOfPoints) {}
 }
