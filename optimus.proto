@@ -14,9 +14,8 @@ message Point {
 
     Status status = 3;
 
-    string point = 4;
-    double metric_value = 5;
-
+    string coordinate = 4;
+    string metric_value = 5;
     string metadata = 6;
 }
 
@@ -25,7 +24,7 @@ message ListOfPoints {
 }
 
 message RequestWithId {
-    string id = 1;
+    uint64 id = 1;
 }
 
 message ListPointsRequest {
