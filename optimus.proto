@@ -1,15 +1,15 @@
 syntax = "proto3";
 
-message Point {
+message Job {
     string project = 1;
     uint64 id = 2;
 
     enum Status {
-      PENDING = 0;
-      PULLED = 1;
-      RUNNING = 2;
-      FAILED = 3;
-      COMPLETED = 4;
+        PENDING = 0;
+        PULLED = 1;
+        RUNNING = 2;
+        FAILED = 3;
+        COMPLETED = 4;
     }
 
     Status status = 3;
@@ -17,26 +17,40 @@ message Point {
     string coordinate = 4;
     string metric_value = 5;
     string metadata = 6;
+    string input = 7;
+    string output = 8;
+    
+    enum Kind {
+        POINT = 0;
+        DJOB = 1;
+        ETC = 2;
+    }
+    Kind kind = 9;
 }
 
-message ListOfPoints {
-    repeated Point points = 1;
+message ListOfJobs {
+    repeated Job jobs = 1;
 }
 
 message RequestWithId {
     uint64 id = 1;
 }
 
-message ListPointsRequest {
+message ListJobsRequest {
     uint32 how_many = 1;
 }
 
 service Optimus {
-    rpc CreatePoint(Point) returns (Point) {}
-    rpc GetPoint(RequestWithId) returns (Point) {}
-    rpc ListPoints(ListPointsRequest) returns (ListOfPoints) {}
+    rpc CreateJob (Job) returns (Job) {
+    }
+    rpc GetJob (RequestWithId) returns (Job) {
+    }
+    rpc ListJobs (ListJobsRequest) returns (ListOfJobs) {
+    }
 
-    rpc ModifyPoint(Point) returns (Point) {} /** Merges passed Status, MetricValue and Metadata to db */
+    rpc ModifyJob (Job) returns (Job) {
+    } /** Merges passed Status, MetricValue and Metadata to db */
 
-    rpc PullPendingPoints(ListPointsRequest) returns (ListOfPoints) {}
+    rpc PullPendingJobs (ListJobsRequest) returns (ListOfJobs) {
+    }
 }
