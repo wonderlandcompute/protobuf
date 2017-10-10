@@ -20,12 +20,7 @@ message Job {
     string input = 7;
     string output = 8;
 
-    enum Kind {
-        POINT = 0;
-        DJOB = 1;
-        ETC = 2;
-    }
-    Kind kind = 9;
+    string kind = 9;
 }
 
 message ListOfJobs {
