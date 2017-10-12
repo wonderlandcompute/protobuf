@@ -1,2 +1,2 @@
-Protobuf description for Metascheduler service
+Protobuf description for Disneyland service
 ---
