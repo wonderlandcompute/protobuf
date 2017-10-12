@@ -1,0 +1,58 @@
+syntax = "proto3";
+
+message Job {
+    string project = 1;
+    uint64 id = 2;
+
+    enum Status {
+        PENDING = 0;
+        PULLED = 1;
+        RUNNING = 2;
+        FAILED = 3;
+        COMPLETED = 4;
+    }
+
+    Status status = 3;
+
+    string coordinate = 4;
+    string metric_value = 5;
+    string metadata = 6;
+    string input = 7;
+    string output = 8;
+
+    string kind = 9;
+}
+
+message ListOfJobs {
+    repeated Job jobs = 1;
+}
+
+message RequestWithId {
+    uint64 id = 1;
+}
+
+message ListJobsRequest {
+    uint32 how_many = 1;
+}
+
+message ListJobStatusResponse {
+    repeated Job.Status status = 1;
+}
+
+service Metascheduler {
+    rpc CreateJob (Job) returns (Job) {
+    }
+    rpc CreateMultipleJobs (ListOfJobs) returns (ListOfJobs) {
+    }
+    rpc GetJob (RequestWithId) returns (Job) {
+    }
+    rpc ListJobs (ListJobsRequest) returns (ListOfJobs) {
+    }
+
+    rpc ModifyJob (Job) returns (Job) {
+    } /** Merges passed Status, MetricValue and Metadata to db */
+
+    rpc PullPendingJobs (ListJobsRequest) returns (ListOfJobs) {
+    }
+    //rpc BidiJobs (stream ListOfJobs) returns (stream ListJobStatusResponse) { }
+}
