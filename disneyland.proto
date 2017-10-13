@@ -40,19 +40,13 @@ message ListJobStatusResponse {
 }
 
 service Disneyland {
-    rpc CreateJob (Job) returns (Job) {
-    }
-    rpc CreateMultipleJobs (ListOfJobs) returns (ListOfJobs) {
-    }
-    rpc GetJob (RequestWithId) returns (Job) {
-    }
-    rpc ListJobs (ListJobsRequest) returns (ListOfJobs) {
-    }
+    rpc CreateJob (Job) returns (Job) {}
+    rpc CreateMultipleJobs (ListOfJobs) returns (ListOfJobs) {}
+    rpc GetJob (RequestWithId) returns (Job) {}
+    rpc ListJobs (ListJobsRequest) returns (ListOfJobs) {}
 
-    rpc ModifyJob (Job) returns (Job) {
-    } /** Merges passed Status, MetricValue and Metadata to db */
+    rpc ModifyJob (Job) returns (Job) {} /** Merges passed Status, MetricValue and Metadata to db */
 
-    rpc PullPendingJobs (ListJobsRequest) returns (ListOfJobs) {
-    }
+    rpc PullPendingJobs (ListJobsRequest) returns (ListOfJobs) {}
     //rpc BidiJobs (stream ListOfJobs) returns (stream ListJobStatusResponse) { }
 }
