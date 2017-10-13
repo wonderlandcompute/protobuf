@@ -1,2 +1,2 @@
-Protobuf description for Optimus service
+Protobuf description for «Disneyland»
 ---
