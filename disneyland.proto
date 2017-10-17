@@ -33,7 +33,7 @@ message ListJobStatusResponse {
     repeated Job.Status status = 1;
 }
 
-message ListJobsKindRequest {
+message ListJobsRequest {
     uint32 how_many = 1;
     string kind = 2;
 }
@@ -41,10 +41,10 @@ message ListJobsKindRequest {
 service Disneyland {
     rpc CreateJob (Job) returns (Job) {}
     rpc GetJob (RequestWithId) returns (Job) {}
-    rpc ListJobs (ListJobsKindRequest) returns (ListOfJobs) {}
+    rpc ListJobs (ListJobsRequest) returns (ListOfJobs) {}
 
     rpc ModifyJob (Job) returns (Job) {} /** Merges passed Status, MetricValue and Metadata to db */
 
-    rpc PullPendingJobs (ListJobsKindRequest) returns (ListOfJobs) {}
+    rpc PullPendingJobs (ListJobsRequest) returns (ListOfJobs) {}
     //rpc BidiJobs (stream ListOfJobs) returns (stream ListJobStatusResponse) { }
 }
