@@ -29,10 +29,6 @@ message RequestWithId {
     uint64 id = 1;
 }
 
-message ListJobsRequest {
-    uint32 how_many = 1;
-}
-
 message ListJobStatusResponse {
     repeated Job.Status status = 1;
 }
@@ -45,7 +41,7 @@ message ListJobsKindRequest {
 service Disneyland {
     rpc CreateJob (Job) returns (Job) {}
     rpc GetJob (RequestWithId) returns (Job) {}
-    rpc ListJobs (ListJobsRequest) returns (ListOfJobs) {}
+    rpc ListJobs (ListJobsKindRequest) returns (ListOfJobs) {}
 
     rpc ModifyJob (Job) returns (Job) {} /** Merges passed Status, MetricValue and Metadata to db */
 
