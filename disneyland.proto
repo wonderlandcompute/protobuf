@@ -36,6 +36,7 @@ message ListJobStatusResponse {
 message ListJobsRequest {
     uint32 how_many = 1;
     string kind = 2;
+    string project=3;
 }
 
 service Disneyland {
