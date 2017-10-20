@@ -29,12 +29,14 @@ message RequestWithId {
     uint64 id = 1;
 }
 
-message ListJobsRequest {
-    uint32 how_many = 1;
-}
-
 message ListJobStatusResponse {
     repeated Job.Status status = 1;
+}
+
+message ListJobsRequest {
+    uint32 how_many = 1;
+    string kind = 2;
+    string project=3;
 }
 
 service Disneyland {
