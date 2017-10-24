@@ -35,7 +35,8 @@ message ListJobStatusResponse {
 
 message ListJobsRequest {
     uint32 how_many = 1;
-    string param = 2;
+    string project = 2;
+    string kind = 3;
 }
 
 
