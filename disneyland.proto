@@ -35,9 +35,9 @@ message ListJobStatusResponse {
 
 message ListJobsRequest {
     uint32 how_many = 1;
-    string kind = 2;
-    string project=3;
+    string param = 2;
 }
+
 
 service Disneyland {
     rpc CreateJob (Job) returns (Job) {}
@@ -47,5 +47,6 @@ service Disneyland {
     rpc ModifyJob (Job) returns (Job) {} /** Merges passed Status, MetricValue and Metadata to db */
 
     rpc PullPendingJobs (ListJobsRequest) returns (ListOfJobs) {}
+    rpc DeleteJob(RequestWithId) returns (Job) {}
     //rpc BidiJobs (stream ListOfJobs) returns (stream ListJobStatusResponse) { }
 }
