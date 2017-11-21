@@ -23,5 +23,5 @@ vendor
 .yml
 
 #compiled files
-.go
-.py
+*.go
+*.py
