@@ -21,3 +21,7 @@ vendor
 
 #configs personal
 .yml
+
+#compiled files
+*.go
+*.py
