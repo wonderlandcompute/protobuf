@@ -35,7 +35,7 @@ message ListJobsRequest {
     string kind = 3;
 }
 
-service Disneyland {
+service Wonderland {
     rpc CreateJob (Job) returns (Job) {}
     rpc GetJob (RequestWithId) returns (Job) {}
     rpc ListJobs (ListJobsRequest) returns (ListOfJobs) {}
