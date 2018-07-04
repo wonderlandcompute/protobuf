@@ -1,2 +1,2 @@
-Protobuf description for «Disneyland»
+Protobuf description for «Wonderland»
 ---
