@@ -35,11 +35,18 @@ message ListJobsRequest {
     string kind = 3;
 }
 
+message FetchJob{
+    int64 num=1;
+    string cursor =2;
+}
+
 service Wonderland {
     rpc CreateJob (Job) returns (Job) {}
     rpc GetJob (RequestWithId) returns (Job) {}
     rpc ListJobs (ListJobsRequest) returns (ListOfJobs) {}
-    rpc ModifyJob (Job) returns (Job) {} /** Merges passed Status, MetricValue and Metadata to db */
+    rpc ModifyJob (Job) returns (Job) {}
     rpc PullPendingJobs (ListJobsRequest) returns (ListOfJobs) {}
     rpc DeleteJob(RequestWithId) returns (Job) {}
+    rpc FetchJobs (FetchJob) returns (stream Job);
+    rpc FetchAll (ListJobsRequest) returns (ListOfJobs) {}
 }
