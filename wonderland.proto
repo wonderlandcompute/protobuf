@@ -11,6 +11,7 @@ message Job {
         RUNNING = 2;
         FAILED = 3;
         COMPLETED = 4;
+        KILLED = 5;
     }
 
     Status status = 4;
@@ -39,7 +40,8 @@ service Wonderland {
     rpc CreateJob (Job) returns (Job) {}
     rpc GetJob (RequestWithId) returns (Job) {}
     rpc ListJobs (ListJobsRequest) returns (ListOfJobs) {}
-    rpc ModifyJob (Job) returns (Job) {} /** Merges passed Status, MetricValue and Metadata to db */
+    rpc ModifyJob (Job) returns (Job) {} /** Merges passed Status and Metadata to db */
     rpc PullPendingJobs (ListJobsRequest) returns (ListOfJobs) {}
     rpc DeleteJob(RequestWithId) returns (Job) {}
+    rpc KillJob (RequestWithId) returns (Job) {}
 }
